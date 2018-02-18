@@ -42,6 +42,31 @@ func homePage() {
         + "\n2. 🏦 Consulter ma banque"
         + "\n3. 🏠 Consulter ma grange"
         + "\n")
+    //the user makes his choice
+    if let choice = readLine() {
+        
+        switch choice { //SWITCH 'only if the user has chosen choice 1 on the home page'
+            
+        case "1":
+            activityTodayPage()
+            //The user makes his choice
+            
+        case "2": //Amount of money in the bank
+            print("\n"
+                + "Votre banque contient \(money) euros !")
+            
+        case "3": //contents of the barn
+            print("\n"
+                + "Votre grange contient:"
+                + "\n- \(barn["milk"]!) bidons de lait"
+                + " \n- \(barn["wheat"]!) bottes de blé"
+                + "\n- \(barn["whool"]!) pelottes de laine")
+        default:
+            print("\n"
+                + "Je ne comprends pas.")
+            
+        }
+    }
 }
 func activityTodayPage() {
     print("\n"
@@ -85,32 +110,8 @@ func activityTodayPage() {
         }
     }
 }
+//loop that displays "homepage()" continuously
 while true {
-    //display the home page at launch
     homePage()
-//the user makes his choice
-if let choice = readLine() {
-    
-    switch choice { //SWITCH 'only if the user has chosen choice 1 on the home page'
-        
-    case "1":
-        activityTodayPage()
-        //The user makes his choice
 
-        case "2": //Amount of money in the bank
-        print("\n"
-            + "Votre banque contient \(money) euros !")
-        
-        case "3": //contents of the barn
-        print("\n"
-            + "Votre grange contient:"
-            + "\n- \(barn["milk"]!) bidons de lait"
-            + " \n- \(barn["wheat"]!) bottes de blé"
-            + "\n- \(barn["whool"]!) pelottes de laine")
-        default:
-        print("\n"
-            + "Je ne comprends pas.")
-        
-        }
-    }
 }
