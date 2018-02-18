@@ -22,18 +22,19 @@ func sell() {
         + "\nTOTAL: \(money)€ en comptant l'argent depensé pour la nourriture.")
     barn = ["milk": 0.0,"wheat": 0.0,"whool": 0.0]
 }
-func milkCows() {
-    barn["milk"]! += 30
+func milkCows(quantity: Double) {
+        barn["milk"]! += quantity
 }
-func mowSheep() {
-    barn["whool"]! += 30
+func mowSheep(quantity: Double) {
+    barn["whool"]! += quantity
 }
-func harvest() {
-    barn["wheat"]! += 100
+func harvest(quantity: Double) {
+    barn["wheat"]! += quantity
 }
 //==============================
 // MARK: - Conversation
 //==============================
+
 func homePage() {
     print("\n"
         + "Que voulez vous faire ?"
@@ -68,6 +69,7 @@ func homePage() {
         }
     }
 }
+
 func activityTodayPage() {
     print("\n"
         + "Qu'avez-vous fait aujourd'hui ?!"
@@ -90,17 +92,32 @@ func activityTodayPage() {
             print("\n"
                 + "Super !")
         case "3": //Milking cows 'only if the user has chosen choice 1 on the home page'
-            milkCows()
             print("\n"
-                + "Super !")
+                + "combien de bidons de lait avez-vous recolté ?")
+            if let choice = readLine() {
+                if let choiceNumber = Double(choice) {
+                    milkCows(quantity: choiceNumber)
+                }
+            }
+            print("Ok c'est noté")
         case "4": //Harvest bales of wheat 'only if the user has chosen choice 1 on the home page'
-            harvest()
             print("\n"
-                + "Super !")
+                + "Combien de bottes de blé avez-vous recolté ?")
+            if let choice = readLine() {
+                if let choiceNumber = Double(choice) {
+                    harvest(quantity: choiceNumber)
+                }
+            }
+            print("Ok c'est noté")
         case "5": //Sheep shearing 'only if the user has chosen choice 1 on the home page
-            mowSheep()
             print("\n"
-                + "Super !")
+                + "Combien de pelottes de laine avez-vous recolté ?")
+            if let choice = readLine() {
+                if let choiceNumber = Double(choice) {
+                    mowSheep(quantity: choiceNumber)
+                }
+            }
+            print("Ok c'est noté")
         case "6": //view the home page 'only if the user has chosen choice 1 on the home page'
             print("\n"
                 + "retour à la page d'acceuil")
@@ -110,6 +127,7 @@ func activityTodayPage() {
         }
     }
 }
+
 //loop that displays "homepage()" continuously
 while true {
     homePage()
