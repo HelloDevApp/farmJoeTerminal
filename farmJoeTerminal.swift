@@ -43,7 +43,7 @@ func homePage() {
         + "\n2. 🏦 Consulter ma banque"
         + "\n3. 🏠 Consulter ma grange"
         + "\n")
-    //the user makes his choice
+    //The user makes his choice
     if let choice = readLine() {
         
         switch choice { //SWITCH 'only if the user has chosen choice 1 on the home page'
@@ -56,7 +56,7 @@ func homePage() {
             print("\n"
                 + "Votre banque contient \(money) euros !")
             
-        case "3": //contents of the barn
+        case "3": //Contents of the barn
             print("\n"
                 + "Votre grange contient:"
                 + "\n- \(barn["milk"]!) bidons de lait"
@@ -82,16 +82,16 @@ func activityTodayPage() {
         + "\n")
     
     if let choice = readLine() {
-        switch choice { // SWITCH 'only if the user has chosen choice 1 on the home page'
-        case "1": //Feed the animals 'only if the user has chosen choice 1 on the home page'
+        switch choice {
+        case "1": //Feed the animals if the user choses 1
             feedingAnimals()
             print("\n"
                 + "Super !")
-        case "2": //Sell the products of the barn 'only if the user has chosen choice 1 on the home page'
+        case "2": //Sell the products of the barn if the user chooses 2
             sell()
             print("\n"
                 + "Super !")
-        case "3": //Milking cows 'only if the user has chosen choice 1 on the home page'
+        case "3": //Milking cows if the user chooses 3
             print("\n"
                 + "combien de bidons de lait avez-vous recolté ?")
             if let choice = readLine() {
@@ -104,7 +104,7 @@ func activityTodayPage() {
                         + "Désoler je n'ai pas compris !")
                 }
             }
-        case "4": //Harvest bales of wheat 'only if the user has chosen choice 1 on the home page'
+        case "4": //Harvest bales of wheat if the user chooses 4
             print("\n"
                 + "Combien de bottes de blé avez-vous recolté ?")
             if let choice = readLine() {
@@ -117,7 +117,7 @@ func activityTodayPage() {
                         + "Désoler je n'ai pas compris !")
                 }
             }
-        case "5": //Sheep shearing 'only if the user has chosen choice 1 on the home page
+        case "5": //Sheep shearing if the user has chooses 5
             print("\n"
                 + "Combien de pelottes de laine avez-vous recolté ?")
             if let choice = readLine() {
@@ -130,17 +130,17 @@ func activityTodayPage() {
                         + "Désoler je n'ai pas compris !")
                 }
             }
-        case "6": //view the home page 'only if the user has chosen choice 1 on the home page'
+        case "6": //Back to the home page if the user has chooses 6
             print("\n"
                 + "retour à la page d'acceuil")
-        default: //only if the user has chosen choice 1 on the home page
+        default: //Only if the user entered an incorrect value
             print("\n"
                 + "Je ne comprends pas.")
         }
     }
 }
 
-//loop that displays "homepage()" continuously
+//Loop that displays "homepage()" continuously
 while true {
     homePage()
 
