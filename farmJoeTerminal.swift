@@ -97,27 +97,39 @@ func activityTodayPage() {
             if let choice = readLine() {
                 if let choiceNumber = Double(choice) {
                     milkCows(quantity: choiceNumber)
+                    print("\n"
+                        + "Ok c'est noté")
+                } else {
+                    print("\n"
+                        + "Désoler je n'ai pas compris !")
                 }
             }
-            print("Ok c'est noté")
         case "4": //Harvest bales of wheat 'only if the user has chosen choice 1 on the home page'
             print("\n"
                 + "Combien de bottes de blé avez-vous recolté ?")
             if let choice = readLine() {
                 if let choiceNumber = Double(choice) {
                     harvest(quantity: choiceNumber)
+                    print("\n"
+                        + "Ok c'est noté")
+                } else {
+                    print("\n"
+                        + "Désoler je n'ai pas compris !")
                 }
             }
-            print("Ok c'est noté")
         case "5": //Sheep shearing 'only if the user has chosen choice 1 on the home page
             print("\n"
                 + "Combien de pelottes de laine avez-vous recolté ?")
             if let choice = readLine() {
                 if let choiceNumber = Double(choice) {
                     mowSheep(quantity: choiceNumber)
+                    print("\n"
+                        + "Ok c'est noté")
+                } else {
+                    print("\n"
+                        + "Désoler je n'ai pas compris !")
                 }
             }
-            print("Ok c'est noté")
         case "6": //view the home page 'only if the user has chosen choice 1 on the home page'
             print("\n"
                 + "retour à la page d'acceuil")
