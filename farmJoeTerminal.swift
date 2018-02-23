@@ -22,8 +22,7 @@ func sell() {
     //Money obtained during the sale
     let totalSold = barn["milk"]! * 0.50 + barn["wheat"]! * 0.30 + barn["whool"]! * 1
     
-    print("\n"
-        + "Vous avez recolté \(barn["milk"]! * 0.50)€ en vendant \(barn["milk"]!) bidons de lait"
+    skipLine(message: "Vous avez recolté \(barn["milk"]! * 0.50)€ en vendant \(barn["milk"]!) bidons de lait"
         
         + "\nVous avez recolté \(barn["wheat"]! * 0.30)€ en vendant \(barn["wheat"]!) bottes de blé"
         
@@ -34,7 +33,6 @@ func sell() {
     //We empty the barn
     barn = ["milk": 0.0,"wheat": 0.0,"whool": 0.0]
 }
-
 
 func milkCows(retrieving quantity: Double) {
         barn["milk"]! += quantity
@@ -50,9 +48,13 @@ func mowSheep(retrieving quantity: Double) {
 //==============================
 // MARK: - Conversation
 //==============================
+func skipLine(message: String) {
+        print("\n"
+            + message)
+}
+
 func typeSelection(type: String) -> Double? {
-    print("\n"
-        + "combien de \(type) avez-vous recolté ?")
+    skipLine(message: "Combien de \(type) avez-vous recolté ?")
     
     if let choice = readLine() {
         if let choiceNumber = Double(choice) {
@@ -64,13 +66,12 @@ func typeSelection(type: String) -> Double? {
 }
 
 func homePage() {
-    print("\n"
-        + "Que voulez vous faire ?"
-        + "\n"
-        + "\n1. 🤸 Enregistrer une nouvelle activité"
-        + "\n2. 🏦 Consulter ma banque"
-        + "\n3. 🏠 Consulter ma grange"
-        + "\n")
+    skipLine(message: "Que voulez vous faire ?")
+    skipLine(message: "1. 🤸 Enregistrer une nouvelle activité"
+                    + "\n2. 🏦 Consulter ma banque"
+                    + "\n3. 🏠 Consulter ma grange"
+                    + "\n")
+    
     //The user makes his choice
     if let choice = readLine() {
         
@@ -78,42 +79,36 @@ func homePage() {
         case "1":// activity Today Page
             activityTodayPage()
         case "2": //Amount of money in the bank
-            print("\n"
-                + "Votre banque contient \(money) euros !")
+            skipLine(message: "Votre banque contient \(money) euros !")
         case "3": //Contents of the barn
-            print("\n"
-                + "Votre grange contient:"
-                + "\n- \(barn["milk"]!) bidons de lait"
-                + " \n- \(barn["wheat"]!) bottes de blé"
-                + "\n- \(barn["whool"]!) pelottes de laine")
+            skipLine(message: "Votre grange contient:"
+                            + "\n- \(barn["milk"]!) bidons de lait"
+                            + "\n- \(barn["wheat"]!) bottes de blé"
+                            + "\n- \(barn["whool"]!) pelottes de laine")
         default:
-            print("\n"
-                + "Je ne comprends pas.")
+            skipLine(message: "Je ne comprends pas.")
         }
     }
 }
 
 func activityTodayPage() {
-    print("\n"
-        + "Qu'avez-vous fait aujourd'hui ?!"
-        + "\n1. 🥕 J'ai nourrit mes animaux"
-        + "\n2. 💰 J'ai vendus mes produits"
-        + "\n3. 🐄 J'ai trait mes vaches"
-        + "\n4. 🌾 J'ai moissonné"
-        + "\n5. 🐑 J'ai tondu mes moutons"
-        + "\n6. ⬅️ Retour à l'acceuil"
-        + "\n")
+    skipLine(message: "Qu'avez-vous fait aujourd'hui ?!")
+    skipLine(message: "1. 🥕 J'ai nourrit mes animaux"
+                    + "\n2. 💰 J'ai vendus mes produits"
+                    + "\n3. 🐄 J'ai trait mes vaches"
+                    + "\n4. 🌾 J'ai moissonné"
+                    + "\n5. 🐑 J'ai tondu mes moutons"
+                    + "\n6. ⬅️ Retour à l'acceuil"
+                    + "\n")
     
     if let choice = readLine() {
         switch choice {
         case "1": //Feed the animals if the user choses 1
             feedingAnimals()
-            print("\n"
-                + "Super !")
+            skipLine(message: "Super !")
         case "2": //Sell the products of the barn if the user chooses 2
             sell()
-            print("\n"
-                + "Super !")
+            skipLine(message: "Super !")
         case "3": //Milking cows if the user chooses 3
             if let quantity = typeSelection(type: "lait") {
                 milkCows(retrieving: quantity)
@@ -128,11 +123,9 @@ func activityTodayPage() {
                 mowSheep(retrieving: quantity)
             }
         case "6": //Back to the home page if the user has chooses 6
-            print("\n"
-                + "retour à la page d'acceuil")
+            skipLine(message: "Retour à la page d'acceuil")
         default: //Only if the user entered an incorrect value
-            print("\n"
-                + "Je ne comprends pas.")
+            skipLine(message: "Je ne comprends pas.")
         }
     }
 }
